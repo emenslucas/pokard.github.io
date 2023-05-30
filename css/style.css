@@ -1,0 +1,145 @@
+body {
+  background-color: black;
+  font-family: "Clash Display", sans-serif;
+}
+
+/* Navbar */
+nav,
+.navbar-subContainer {
+  transition: 0.1s;
+  height: 80px;
+  padding: 0 25px;
+}
+
+.navbar a {
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-brand span {
+  font-size: 1em;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.custom-toggler {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.line {
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.line:first-child {
+  top: calc(50%);
+}
+
+.line:last-child {
+  top: calc(50%);
+}
+
+.navbar-toggler[aria-expanded="true"] .line:first-child {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .line:last-child {
+  transform: rotate(-45deg);
+}
+
+.navbar-toggler:not([aria-expanded="true"]) .line:first-child {
+  transform: translateY(-4px);
+}
+
+.navbar-toggler:not([aria-expanded="true"]) .line:last-child {
+  transform: translateY(4px);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 25px;
+  position: absolute;
+}
+
+.bg-color {
+  backdrop-filter: blur(7.5px);
+}
+
+.navbar-nav {
+  transition: 0.3s;
+}
+
+.navbar-subContainer.scrolled {
+  transition: 0.3s;
+  background-color: blur(7.5px);
+}
+
+.navbar.scrolled {
+  background-color: blur(7.5px);
+  transition: 0.3s;
+}
+
+.navbar-toggler.scrolled {
+  background-color: black;
+  transition: 0.3s;
+}
+
+.navbar-subContainer {
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+  align-items: center;
+}
+
+.nav-item {
+  border-bottom: solid 2px transparent;
+}
+
+.nav-item a {
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.nav-link:focus {
+  color: white;
+}
+
+.nav-item.bg-color {
+  border-bottom: solid 2px #aedaee;
+  transition: 0.3s;
+}
