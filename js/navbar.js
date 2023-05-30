@@ -1,134 +1,40 @@
-$(function () {
-  var $navbar = $(".navbar");
-  var $navbarSubContainer = $(".navbar-subContainer");
-  var $navbarNav = $(".navbar-nav");
-  var clickCount = 0;
-  var currentSectionId = null;
-  var isNavLinkClicked = false;
+// Obtener todos los enlaces de navegación
+const navLinks = document.querySelectorAll('.nav-link');
 
-  function resetNavbarOnResize() {
-    var isMobileView = window.innerWidth < 992;
+// Obtener todas las secciones
+const sections = document.querySelectorAll('section');
 
-    if (!isMobileView) {
-      $(".navbar-collapse").removeClass("show");
-      $(".navbar-toggler").addClass("collapsed").attr("aria-expanded", "false");
-      $navbarSubContainer.removeClass("scrolled");
-      $navbarNav.removeClass("bg-color");
-      clickCount = 0;
-      currentSectionId = null;
-      updateNavbarSubContainerWidth();
-      changeNavItemColor();
-    }
-  }
-
-  $(window).on("resize", resetNavbarOnResize);
-
-  function updateNavbarSubContainerWidth() {
-    var isCollapseHidden =
-      $(".navbar-collapse").is(":hidden") ||
-      $(".navbar-collapse").hasClass("show");
-
-    if (isCollapseHidden) {
-      $navbarSubContainer.css("width", "100%");
-      $navbar.removeClass("scrolled", $(window).scrollTop() > 0);
+// Función para agregar la clase active al enlace correspondiente
+const addActiveClass = (id) => {
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href') === `#${id}`) {
+      link.classList.add('active');
     } else {
-      $navbarSubContainer.css("width", "0%");
-      $navbarSubContainer.removeClass("scrolled");
-      $navbar.toggleClass("scrolled", $(window).scrollTop() > 0);
+      link.classList.remove('active');
     }
+  });
+};
+
+// Variable para almacenar la sección más cercana al borde superior de la pantalla
+let closestSection;
+
+// Detectar el evento de desplazamiento
+window.addEventListener('scroll', () => {
+  // Recorrer todas las secciones
+  sections.forEach((section) => {
+    // Obtener la posición de la sección en relación con la parte superior de la página
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    // Verificar si el usuario se encuentra sobre la sección
+    if (window.scrollY >= sectionTop - sectionHeight / 3) {
+      // Actualizar la sección más cercana al borde superior de la pantalla
+      closestSection = section;
+    }
+  });
+
+  // Agregar la clase active al enlace correspondiente a la sección más cercana al borde superior de la pantalla
+  if (closestSection) {
+    addActiveClass(closestSection.getAttribute('id'));
   }
-
-  function toggleNavbarClass() {
-    $navbarSubContainer
-      .add(".navbar-toggler")
-      .toggleClass(
-        "scrolled",
-        $(window).scrollTop() > 0 || clickCount % 2 !== 0
-      );
-  }
-
-  function toggleBgColor() {
-    $navbarNav.toggleClass("bg-color");
-    updateNavbarSubContainerWidth();
-  }
-
-  function toggleScrolledClass() {
-    $navbarSubContainer
-      .add(".navbar-toggler")
-      .toggleClass("scrolled", ++clickCount % 2 !== 0);
-  }
-
-  function changeNavItemColor() {
-    var $sections = $("section");
-    var windowTop = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    var $navItems = $(".nav-item");
-
-    $sections.each(function () {
-      var $section = $(this);
-      var sectionId = $section.attr("id");
-      var navLink = $("a[href='#" + sectionId + "']");
-      var navItem = navLink.closest(".nav-item");
-
-      var sectionTop = $section.offset().top;
-      var sectionHeight = $section.outerHeight();
-      var sectionBottom = sectionTop + sectionHeight;
-
-      if (
-        windowTop >= sectionTop - windowHeight / 2 &&
-        windowTop <= sectionBottom - windowHeight / 2
-      ) {
-        if (sectionId !== currentSectionId) {
-          $navItems.removeClass("bg-color");
-          navItem.addClass("bg-color");
-          currentSectionId = sectionId;
-        }
-      }
-    });
-  }
-
-   // Agregar controlador de eventos 'wheel' al objeto 'window'
-   $(window).on('wheel', function() {
-     if (isNavLinkClicked) {
-         setTimeout(function() {
-           changeNavItemColor();
-           isNavLinkClicked = false;
-         },500);
-     }
-   });
-
-   $(window).on("scroll resize", function () {
-     toggleNavbarClass();
-     updateNavbarSubContainerWidth();
-     if (!isNavLinkClicked) {
-       changeNavItemColor();
-     }
-   });
-
-   $(".navbar-collapse").on(
-     "show.bs.collapse hide.bs.collapse",
-     toggleBgColor
-   );
-   $(".navbar-toggler").click(toggleScrolledClass);
-
-   $(".nav-link").click(function () {
-     clickCount++;
-     isNavLinkClicked = true;
-     $(".navbar-toggler").addClass("collapsed").attr("aria-expanded", "false");
-     $navbarSubContainer.removeClass("scrolled");
-     $(".navbar-collapse").removeClass("show");
-     $navbarNav.removeClass("bg-color");
-
-     var navItem = $(this).closest(".nav-item");
-     $(".nav-item").removeClass("bg-color");
-     navItem.addClass("bg-color");
-   });
-
-   updateNavbarSubContainerWidth();
-
-   $(window).on("load", function () {
-     if (!isNavLinkClicked) {
-       changeNavItemColor();
-     }
-   });
 });

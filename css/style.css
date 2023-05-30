@@ -1,6 +1,8 @@
 body {
   background-color: black;
   font-family: "Clash Display", sans-serif;
+  margin-top: 80px; /* Navbar height */
+  height: 200vh;
 }
 
 /* Navbar */
@@ -9,20 +11,21 @@ nav,
   transition: 0.1s;
   height: 80px;
   padding: 0 25px;
+  background-color: black;
 }
 
 .navbar a {
-  transition: background-color 0.3s ease;
   color: white;
 }
 
-.navbar a:hover {
-  color: white;
+.nav-item a:hover, .nav-item .active {
+ color: #b2ffe3 !important;
 }
 
 .navbar-brand {
   display: flex;
   gap: 10px;
+  position: absolute;
 }
 
 .navbar-brand span {
@@ -96,27 +99,9 @@ nav,
   position: absolute;
 }
 
-.bg-color {
-  backdrop-filter: blur(7.5px);
-}
-
 .navbar-nav {
   transition: 0.3s;
-}
-
-.navbar-subContainer.scrolled {
-  transition: 0.3s;
-  background-color: blur(7.5px);
-}
-
-.navbar.scrolled {
-  background-color: blur(7.5px);
-  transition: 0.3s;
-}
-
-.navbar-toggler.scrolled {
   background-color: black;
-  transition: 0.3s;
 }
 
 .navbar-subContainer {
@@ -124,10 +109,6 @@ nav,
   justify-content: space-between;
   transition: 0.3s;
   align-items: center;
-}
-
-.nav-item {
-  border-bottom: solid 2px transparent;
 }
 
 .nav-item a {
@@ -139,7 +120,107 @@ nav,
   color: white;
 }
 
-.nav-item.bg-color {
-  border-bottom: solid 2px #aedaee;
-  transition: 0.3s;
+/* END NAVBAR CSS */
+
+#inicio {
+  background-color: #171717;
+}
+
+#inicio h1 {
+  font-size: 3em;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+#highlight1 {
+  color: #b2ffe3;
+}
+
+#highlight2 {
+  color: #e9ab7d;
+}
+
+.inicioCard span {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+#bulbasaur {
+  background: linear-gradient(270deg, #ffffff 0%, #709d90 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#charmander {
+  background: linear-gradient(270deg, #ffffff 0%, #e9ab7d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#pikachu {
+  background: linear-gradient(270deg, #ffffff 0%, #decc78 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#squirtle {
+  background: linear-gradient(270deg, #ffffff 0%, #669fb1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pokemonsContainer {
+  gap: 120px;
+  padding: 100px 0 30px 0px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.separator {
+  width: 60px;
+  height: 6px;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.inicioCard {
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  z-index: -1;
+  filter: blur(68px);
+}
+#bulbasaurCircle {
+  background: #88b68a;
+}
+
+#charmanderCircle {
+  background: #e9ab7d;
+}
+
+#pikachuCircle {
+  background: #decc78;
+}
+
+#squirtleCircle {
+  background: #669fb1;
 }
