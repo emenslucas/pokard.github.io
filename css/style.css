@@ -2,7 +2,12 @@ body {
   background-color: black;
   font-family: "Clash Display", sans-serif;
   margin-top: 80px; /* Navbar height */
+  color: white;
   height: 200vh;
+}
+
+section {
+  scroll-margin-top: 100px;
 }
 
 /* Navbar */
@@ -18,8 +23,9 @@ nav,
   color: white;
 }
 
-.nav-item a:hover, .nav-item .active {
- color: #b2ffe3 !important;
+.nav-item a:hover,
+.nav-item .active {
+  color: #b2ffe3 !important;
 }
 
 .navbar-brand {
@@ -223,4 +229,56 @@ nav,
 
 #squirtleCircle {
   background: #669fb1;
+}
+
+/* FIN SECTION INICIO */
+
+.destacadasCard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.bkgCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.4);
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.cartBtn {
+  background-color: black;
+  color: white;
+  width: 191px;
+  font-weight: 600;
+}
+
+.cartBtn:hover {
+  background-color: rgb(15, 15, 15);
+}
+
+.price {
+  background-color: white;
+  width: 191px;
+  height: 30px;
+  border-radius: 5px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.infoContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#cartas h2 {
+  margin: 50px 0 70px 0;
 }

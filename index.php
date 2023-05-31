@@ -78,37 +78,60 @@
           <div class="separator"></div>
         </div>
 
-        <div class="pokemonsContainer d-flex justify-content-center">
-          <div class="inicioCard">
-            <img src="img/bulbasaur.svg" alt="" />
-            <span id="bulbasaur" class="d-block text-center mt-2"
-              >Bulbasaur</span
-            >
-            <div id="bulbasaurCircle" class="circle"></div>
-          </div>
-          <div class="inicioCard">
-            <img src="img/charmander.svg" alt="" />
-            <span id="charmander" class="d-block text-center mt-2"
-              >Charmander</span
-            >
-            <div id="charmanderCircle" class="circle"></div>
-          </div>
-          <div class="inicioCard">
-            <img src="img/pikachu.svg" alt="" />
-            <span id="pikachu" class="d-block text-center mt-2">Pikachu</span>
-            <div id="pikachuCircle" class="circle"></div>
-          </div>
-          <div class="inicioCard">
-            <img src="img/squirtle.svg" alt="" />
-            <span id="squirtle" class="d-block text-center mt-2">Squirtle</span>
-            <div id="squirtleCircle" class="circle"></div>
-          </div>
-        </div>
+        <?php
+        require_once "php/InicioCard.php";
+
+        $bulbasaur = new InicioCard(
+          "img/bulbasaur.svg",
+          "",
+          "bulbasaur",
+          "Bulbasaur"
+        );
+        $charmander = new InicioCard(
+          "img/charmander.svg",
+          "",
+          "charmander",
+          "Charmander"
+        );
+        $pikachu = new InicioCard("img/pikachu.svg", "", "pikachu", "Pikachu");
+        $squirtle = new InicioCard(
+          "img/squirtle.svg",
+          "",
+          "squirtle",
+          "Squirtle"
+        );
+
+        echo '<div class="pokemonsContainer d-flex justify-content-center">';
+        $bulbasaur->display();
+        $charmander->display();
+        $pikachu->display();
+        $squirtle->display();
+        echo "</div>";
+        ?>
       </div>
     </section>
 
     <section id="cartas">
-      
+      <div class="container">
+        <h2 class="text-center">Cartas Destacadas</h2>
+      <div class="row">
+      <?php
+      require_once "php/DestacadasCard.php";
+
+      $cards = [
+        new DestacadasCard("img/card1.svg", "", "$1000", "img/card1.svg", ""),
+        new DestacadasCard("img/card2.svg", "", "$1000", "img/card2.svg", ""),
+        new DestacadasCard("img/card3.svg", "", "$1000", "img/card3.svg", ""),
+      ];
+
+      foreach ($cards as $card) {
+        echo '<div class="col">';
+        $card->display();
+        echo "</div>";
+      }
+      ?>
+      </div>
+      </div>
     </section>
 
     <section id="contacto"></section>
