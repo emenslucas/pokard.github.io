@@ -82,19 +82,28 @@
         require_once "php/InicioCard.php";
 
         $bulbasaur = new InicioCard(
+          "bulbasaurCard",
           "img/bulbasaur.svg",
           "",
           "bulbasaur",
           "Bulbasaur"
         );
         $charmander = new InicioCard(
+          "charmanderCard",
           "img/charmander.svg",
           "",
           "charmander",
           "Charmander"
         );
-        $pikachu = new InicioCard("img/pikachu.svg", "", "pikachu", "Pikachu");
+        $pikachu = new InicioCard(
+          "pikachuCard",
+          "img/pikachu.svg",
+          "",
+          "pikachu",
+          "Pikachu"
+        );
         $squirtle = new InicioCard(
+          "squirtleCard",
           "img/squirtle.svg",
           "",
           "squirtle",
