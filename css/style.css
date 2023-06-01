@@ -1,9 +1,8 @@
 body {
   background-color: black;
   font-family: "Clash Display", sans-serif;
-  margin-top: 80px; /* Navbar height */
   color: white;
-  height: 200vh;
+  cursor: url(../img/favicon.svg), auto;
 }
 
 section {
@@ -15,8 +14,11 @@ nav,
 .navbar-subContainer {
   transition: 0.1s;
   height: 80px;
-  padding: 0 25px;
   background-color: black;
+}
+
+nav .navbar-brand {
+  left: 20px;
 }
 
 .navbar a {
@@ -31,7 +33,6 @@ nav,
 .navbar-brand {
   display: flex;
   gap: 10px;
-  position: absolute;
 }
 
 .navbar-brand span {
@@ -130,6 +131,7 @@ nav,
 
 #inicio {
   background-color: #171717;
+  margin-top: 80px; /* Navbar height */
 }
 
 #inicio h1 {
@@ -195,13 +197,19 @@ nav,
 .separator {
   width: 60px;
   height: 6px;
-  border-radius: 40px;
+  border-radius: 1px;
   background-color: white;
 }
 
 .inicioCard {
   position: relative;
   z-index: 1;
+}
+
+.inicioCard:hover .circle {
+  transition: 0.2s;
+  height: 150px;
+  width: 150px;
 }
 
 .circle {
@@ -214,6 +222,7 @@ nav,
   width: 100px;
   z-index: -1;
   filter: blur(68px);
+  transition: 0.2s;
 }
 #bulbasaurCircle {
   background: #88b68a;
@@ -279,8 +288,14 @@ nav,
   gap: 5px;
 }
 
-#cartas h2 {
-  margin: 50px 0 70px 0;
+#inicio,
+#contacto,
+#cartas {
+  padding: 50px;
+}
+
+#contacto {
+  padding-top: 0;
 }
 
 @media (max-width: 1200px) {
@@ -293,10 +308,115 @@ nav,
   #pikachuCard {
     display: none;
   }
+
+  #inicio h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  #inicio h1 {
+    font-size: 1.8em;
+  }
 }
 
 @media (max-width: 620px) {
   #charmanderCard {
     display: none;
   }
+}
+
+@media (max-width: 532px) {
+  #inicio h1 {
+    font-size: 1.5em;
+  }
+}
+
+form label {
+  font-size: 14px;
+  color: white;
+  display: block;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  background-color: #232323;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+input {
+  height: 40px;
+}
+
+textarea {
+  height: 140px;
+}
+
+.btnSubmit {
+  padding: 5px 40px;
+  background-color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+#contacto .container {
+  max-width: 700px;
+}
+
+footer {
+  padding: 50px 0;
+  background: rgba(35, 35, 35, 0.66);
+}
+
+.loginBtn {
+  background-color: #aedaee;
+  color: black !important;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.loginBtn:hover {
+  background-color: #95bcce;
+  transition: 0.2s;
+}
+
+/* Login page */
+
+#login h1, #register h1 {
+  font-weight: 700;
+  font-size: 3em;
+}
+
+.urlLink {
+  color: white;
+  text-decoration: none;
+}
+
+.bkgCircle {
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  width: 200px;
+  filter: blur(68px);
+}
+
+#bkgCircleOrange {
+  right: 0;
+  background: #e9ab7d;
+}
+#bkgCircleGreen {
+  right: 200px;
+  background: #b2ffe3;
+}
+
+#register form, #login form {
+  max-width: 400px;
 }
