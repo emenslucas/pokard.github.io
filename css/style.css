@@ -465,7 +465,16 @@ footer {
 
 .dropdown-center button{
   min-width: 100%;
+  background-color: white;
+  color: black;
+  font-weight: 500;
 }
+
+.dropdown-center button:hover{
+  background-color: rgb(214, 214, 214);
+  color: black;
+}
+
 
 #searchMenu{
   width: 100%;
