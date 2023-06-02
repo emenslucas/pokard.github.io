@@ -1,4 +1,4 @@
-<section id="cartas">
+<section id="cartasSection">
       <div class="container">
         <h2 class="text-center mb-5">Cartas Destacadas</h2>
       <div class="row">

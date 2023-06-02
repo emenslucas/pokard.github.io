@@ -129,12 +129,16 @@ nav .navbar-brand {
 
 /* END NAVBAR CSS */
 
-#inicio {
+#inicioSection {
   background-color: #171717;
+}
+
+#inicioSection,
+#cartas {
   margin-top: 80px; /* Navbar height */
 }
 
-#inicio h1 {
+#inicioSection h1 {
   font-size: 3em;
   font-weight: 600;
   color: white;
@@ -288,13 +292,13 @@ nav .navbar-brand {
   gap: 5px;
 }
 
-#inicio,
-#contacto,
-#cartas {
+#inicioSection,
+#contactoSection,
+#cartasSection {
   padding: 50px;
 }
 
-#contacto {
+#contactoSection {
   padding-top: 0;
 }
 
@@ -309,13 +313,13 @@ nav .navbar-brand {
     display: none;
   }
 
-  #inicio h1 {
+  #inicioSection h1 {
     font-size: 2em;
   }
 }
 
 @media (max-width: 768px) {
-  #inicio h1 {
+  #inicioSection h1 {
     font-size: 1.8em;
   }
 }
@@ -327,7 +331,7 @@ nav .navbar-brand {
 }
 
 @media (max-width: 532px) {
-  #inicio h1 {
+  #inicioSection h1 {
     font-size: 1.5em;
   }
 }
@@ -366,7 +370,7 @@ textarea {
   font-weight: 600;
 }
 
-#contacto .container {
+#contactoSection .container {
   max-width: 700px;
 }
 
@@ -390,7 +394,8 @@ footer {
 
 /* Login page */
 
-#login h1, #register h1 {
+#login h1,
+#register h1 {
   font-weight: 700;
   font-size: 3em;
 }
@@ -417,6 +422,40 @@ footer {
   background: #b2ffe3;
 }
 
-#register form, #login form {
+#register form,
+#login form {
   max-width: 400px;
+}
+
+#carouselExampleIndicators button {
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+}
+
+#carouselExampleIndicators {
+  width: 100%;
+  max-width: 950px;
+}
+
+.carousel {
+  position: unset;
+}
+
+.carousel-indicators {
+  bottom: 20px;
+}
+
+.cardContainer {
+  position: relative;
+}
+
+.cardContainer .contenedor {
+  position: absolute;
+  bottom: 10px;
+}
+
+.cardContainer img {
+  border: 8px solid #ffffff;
+  border-radius: 8px;
 }

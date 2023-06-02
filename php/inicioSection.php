@@ -1,4 +1,4 @@
-<section id="inicio">
+<section id="inicioSection">
       <div class="container">
         <div class="titleContainer">
           <h1>
