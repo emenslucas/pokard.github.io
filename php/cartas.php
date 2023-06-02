@@ -6,18 +6,18 @@
     <?php include_once "../php/header.php"; ?>
 
     <section id="cartas">
-      <div class="container">
+      <div class="container d-flex flex-column align-items-center">
         <h1 class="text-center mb-4">Cartas</h1>
-        <div class="row">
-          <div class="col">
+        <div id="searchMenu" class="row">
+          <div class="col-6 col-md-4">
             <label class="mb-3" for="nombreCarta">Nombre de carta</label>
             <input type="text" name="nombreCarta" id="nombreCarta" required />
           </div>
-          <div class="col">
+          <div class="col-6 col-md-4">
             <label class="mb-3" for="textoCarta">Texto de carta</label>
             <input type="text" name="textoCarta" id="textoCarta" required />
           </div>
-          <div class="col">
+          <div class="col-12 col-md-4">
             <label class="mb-3" for="">Tipo de energía</label>
             <div class="dropdown-center">
               <button
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="w-100 mt-5 d-flex justify-content-center">
+      <div class="w-100 mt-4 d-flex justify-content-center">
         <div id="carouselExampleIndicators" class="carousel slide">
           <div class="carousel-indicators">
             <button
@@ -70,12 +70,12 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <div class="row">
+              <div class="row mb-4">
                 <div class="col">
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -87,7 +87,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -99,7 +99,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -111,7 +111,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -119,12 +119,12 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4">
                 <div class="col">
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -136,7 +136,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -148,7 +148,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -160,107 +160,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
-                      <a class="btn cartBtn" href="#" role="button"
-                        >Agregar al carrito</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col">
-                  <div class="cardContainer">
-                    <img src="../img/card1.svg" alt="" />
-                    <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -270,12 +170,12 @@
               </div>
             </div>
             <div class="carousel-item">
-              <div class="row">
+              <div class="row mb-4">
                 <div class="col">
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -287,7 +187,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -299,7 +199,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -311,7 +211,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -319,12 +219,12 @@
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4">
                 <div class="col">
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -336,7 +236,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -348,7 +248,7 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >
@@ -360,7 +260,107 @@
                   <div class="cardContainer">
                     <img src="../img/card1.svg" alt="" />
                     <div class="contenedor">
-                      <div class="price"></div>
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
+                      <a class="btn cartBtn" href="#" role="button"
+                        >Agregar al carrito</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="cardContainer">
+                    <img src="../img/card1.svg" alt="" />
+                    <div class="contenedor">
+                      <div class="price">$100</div>
                       <a class="btn cartBtn" href="#" role="button"
                         >Agregar al carrito</a
                       >

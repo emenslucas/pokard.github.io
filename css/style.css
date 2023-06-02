@@ -265,7 +265,6 @@ nav .navbar-brand {
 .cartBtn {
   background-color: black;
   color: white;
-  width: 191px;
   font-weight: 600;
 }
 
@@ -275,7 +274,6 @@ nav .navbar-brand {
 
 .price {
   background-color: white;
-  width: 191px;
   height: 30px;
   border-radius: 5px;
   color: black;
@@ -443,19 +441,34 @@ footer {
 }
 
 .carousel-indicators {
-  bottom: 20px;
+  bottom: 5px;
 }
 
 .cardContainer {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .cardContainer .contenedor {
   position: absolute;
   bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .cardContainer img {
   border: 8px solid #ffffff;
   border-radius: 8px;
 }
+
+.dropdown-center button{
+  min-width: 100%;
+}
+
+#searchMenu{
+  width: 100%;
+  max-width: 950px;
+}
+
