@@ -7,6 +7,8 @@
     include_once "../php/header.php";
     require_once "config.php";
     $db_handle = new DBController();
+    $cartasController = new CartasController();
+    $cartas = $cartasController->obtenerCartas();
     ?>
     <section id="cartas">
         <div class="container d-flex flex-column align-items-center">

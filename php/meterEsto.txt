@@ -1,0 +1,106 @@
+<?php
+class Carta {
+    public $imagen;
+    public $precio;
+    
+    public function __construct($imagen, $precio) {
+        $this->imagen = $imagen;
+        $this->precio = $precio;
+    }
+}
+
+class CartasController {
+    private $db_handle;
+    
+    public function __construct() {
+        require_once "config.php";
+        $this->db_handle = new DBController();
+    }
+    
+    public function obtenerCartas() {
+        $array_cartas = $this->db_handle->runQuery("SELECT * FROM carta ORDER BY id DESC");
+        $cartas = array();
+        if (!empty($array_cartas)) {
+            foreach ($array_cartas as $clave => $valor) {
+                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"]);
+                $cartas[] = $carta;
+            }
+        }
+        return $cartas;
+    }
+}
+
+$cartasController = new CartasController();
+$cartas = $cartasController->obtenerCartas();
+
+$repeticiones = ceil(count($cartas) / 8);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<?php include_once "../php/head.php"; ?>
+
+<body>
+    <?php include_once "../php/header.php"; ?>
+
+    <section id="cartas">
+        <div class="container d-flex flex-column align-items-center">
+            <h1 class="text-center mb-4">Cartas</h1>
+            <!-- Código HTML omitido para mayor claridad -->
+        </div>
+        <div class="w-100 mt-4 d-flex justify-content-center">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-inner">
+                    <?php
+                    $contador_cartas = 0;
+                    foreach ($cartas as $carta) {
+                        if ($contador_cartas % 8 == 0) {
+                            if ($contador_cartas > 0) {
+                                echo '</div></div>';
+                            }
+                            if ($contador_cartas == 0) {
+                                echo '<div class="carousel-item active"><div class="row">';
+                            } else {
+                                echo '<div class="carousel-item"><div class="row">';
+                            }
+                        }
+                        ?>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="cardContainer">
+                                <img class="img-fluid" src="../img/<?php echo $carta->imagen; ?>">
+                                <div class="contenedor">
+                                    <div class="price"><?php echo "$" . $carta->precio; ?></div>
+                                    <form action="carrito.php" method="post">
+                                        <input type="hidden" name="imagen" value="<?php echo $carta->imagen; ?>">
+                                        <input type="hidden" name="precio" value="<?php echo $carta->precio; ?>">
+                                        <input type="submit" value="Agregar al Carrito" class="btn cartBtn">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        $contador_cartas++;
+                    }
+                    if ($contador_cartas % 8 != 0) {
+                        echo '</div></div>';
+                    }
+                    ?>
+                </div>
+                <div class="carousel-indicators">
+                    <?php
+                    for ($i = 0; $i < $repeticiones; $i++) {
+                        $slide = $i + 1;
+                        $active = ($i == 0) ? 'active' : '';
+                        echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' class='$active' aria-label='Slide $slide'></button>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
