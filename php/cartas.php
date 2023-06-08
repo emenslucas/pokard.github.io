@@ -82,16 +82,14 @@
                 </div>
                 <div class="carousel-indicators">
                     <?php
-                    $repeticiones = ceil(count($array_cartas) / 8);
-                    for ($i = 0; $i < $repeticiones; $i++) {
+                   $repeticiones = ceil(count($array_cartas) / 8);
+                   for ($i = 0; $i < $repeticiones; $i++) {
                        $slide = $i + 1;
-                        if($i == 0){
-                        echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' class='active' aria-current='true' aria-label='Slide $slide'></button>";
-                       }
-                       else{
-                        echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' aria-label='Slide $slide'></button>";
-                       }
-                    }
+                       $active = ($i == 0) ? 'active' : '';
+                       $ariaCurrent = ($i == 0) ? 'aria-current="true"' : '';
+                       echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' class='$active' $ariaCurrent aria-label='Slide $slide'></button>";
+                   }
+                   
                     ?>
                 </div>
             </div>
