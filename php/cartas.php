@@ -43,7 +43,7 @@
             <div id="carouselExampleIndicators" class="carousel slide">
                 <div class="carousel-inner">
                     <?php
-                    $array_cartas = $db_handle->runQuery("SELECT * FROM carta ORDER BY id ASC");
+                    $array_cartas = $db_handle->runQuery("SELECT * FROM carta ORDER BY id DESC");
                     if (!empty($array_cartas)) {
                         $contador_cartas = 0;
                         foreach ($array_cartas as $clave => $valor) {
@@ -81,9 +81,18 @@
 
                 </div>
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <?php
+                    $repeticiones = ceil(count($array_cartas) / 8);
+                    for ($i = 0; $i < $repeticiones; $i++) {
+                       $slide = $i + 1;
+                        if($i == 0){
+                        echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' class='active' aria-current='true' aria-label='Slide $slide'></button>";
+                       }
+                       else{
+                        echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='$i' aria-label='Slide $slide'></button>";
+                       }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
