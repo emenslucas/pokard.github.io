@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2023 a las 02:07:57
+-- Tiempo de generación: 08-06-2023 a las 23:41:27
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -90,6 +90,31 @@ INSERT INTO `energia` (`id`, `nombre`, `imagen`) VALUES
 (3, 'agua', 'agua.svg'),
 (4, 'fantasma', 'fantasma.svg');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(8) UNSIGNED NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `clave` varchar(20) NOT NULL,
+  `nivel` varchar(10) NOT NULL DEFAULT 'usuario',
+  `estado` enum('activo','banneado') NOT NULL DEFAULT 'activo',
+  `usuario` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `clave`, `nivel`, `estado`, `usuario`) VALUES
+(14, 'lucas@davinci.edu.ar', '1234', 'Admin', 'activo', 'lpemens'),
+(34, 'facundo@gmail.com', '1234', 'usuario', 'activo', 'facu'),
+(35, 'facundo@gmail.com', '1234', 'usuario', 'activo', 'preiss'),
+(36, 'asdasdasdassda@asdadasdadasdadadada.com', '1234', 'usuario', 'activo', 'flanto');
+
 --
 -- Índices para tablas volcadas
 --
@@ -108,6 +133,13 @@ ALTER TABLE `energia`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `sdfsdfsdfdsfdsf` (`usuario`) USING BTREE;
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -122,6 +154,12 @@ ALTER TABLE `carta`
 --
 ALTER TABLE `energia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Restricciones para tablas volcadas

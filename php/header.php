@@ -1,23 +1,23 @@
 <?php
 $navItems = [
   [
-    "href" => "#inicio",
+    "href" => "index.php#inicio",
     "text" => "Inicio",
   ],
   [
-    "href" => "#cartas",
+    "href" => "cartas.php",
     "text" => "Cartas",
-  ],
-  [
-    "href" => "#contacto",
-    "text" => "Contacto",
   ],
   [
     "href" => "carrito.php",
     "text" => "Carrito",
   ],
   [
-    "href" => "",
+    "href" => "panel.php",
+    "text" => "Panel",
+  ],
+  [
+    "href" => "login.php",
     "text" => "Iniciar Sesión",
     "class" => "loginBtn ps-2 text-center",
   ],

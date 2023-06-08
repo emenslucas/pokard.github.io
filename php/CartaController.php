@@ -1,5 +1,5 @@
 <?php
-class CartasController {
+class CartaController {
     private $db_handle;
     
     public function __construct() {
@@ -9,6 +9,18 @@ class CartasController {
     
     public function obtenerCartas() {
         $array_cartas = $this->db_handle->runQuery("SELECT * FROM carta ORDER BY id DESC");
+        $cartas = array();
+        if (!empty($array_cartas)) {
+            foreach ($array_cartas as $clave => $valor) {
+                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"]);
+                $cartas[] = $carta;
+            }
+        }
+        return $cartas;
+    }
+
+    public function obtenerCartaXNombre($nombre) {
+        $array_cartas = $this->db_handle->runQuery("SELECT * FROM carta WHERE nombre = '$nombre' ORDER BY id DESC");
         $cartas = array();
         if (!empty($array_cartas)) {
             foreach ($array_cartas as $clave => $valor) {

@@ -10,32 +10,32 @@
     </div>
 
     <?php
-    require_once "php/InicioCard.php";
+    require_once "InicioCard.php";
 
     $bulbasaur = new InicioCard(
       "bulbasaurCard",
-      "img/bulbasaur.svg",
+      "../img/bulbasaur.svg",
       "",
       "bulbasaur",
       "Bulbasaur"
     );
     $charmander = new InicioCard(
       "charmanderCard",
-      "img/charmander.svg",
+      "../img/charmander.svg",
       "",
       "charmander",
       "Charmander"
     );
     $pikachu = new InicioCard(
       "pikachuCard",
-      "img/pikachu.svg",
+      "../img/pikachu.svg",
       "",
       "pikachu",
       "Pikachu"
     );
     $squirtle = new InicioCard(
       "squirtleCard",
-      "img/squirtle.svg",
+      "../img/squirtle.svg",
       "",
       "squirtle",
       "Squirtle"

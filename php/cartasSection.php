@@ -3,12 +3,12 @@
     <h2 class="text-center mb-5">Cartas Destacadas</h2>
     <div class="row">
       <?php
-      require_once "php/DestacadasCard.php";
+      require_once "DestacadasCard.php";
 
       $cards = [
-        new DestacadasCard("img/card1.svg", "", "$1000", "img/card1.svg", ""),
-        new DestacadasCard("img/card2.svg", "", "$1000", "img/card2.svg", ""),
-        new DestacadasCard("img/card3.svg", "", "$1000", "img/card3.svg", ""),
+        new DestacadasCard("../img/card1.svg", "", "$1000", "../img/card1.svg", ""),
+        new DestacadasCard("../img/card2.svg", "", "$1000", "../img/card2.svg", ""),
+        new DestacadasCard("../img/card3.svg", "", "$1000", "../img/card3.svg", ""),
       ];
 
       if (count($cards) % 2 == 0) {

@@ -1,11 +1,11 @@
 <?php
 class DestacadasCard
 {
-  public $imgSrc;
-  public $imgAlt;
-  public $price;
-  public $bkgImgSrc;
-  public $bkgImgAlt;
+  private $imgSrc;
+  private $imgAlt;
+  private $price;
+  private $bkgImgSrc;
+  private $bkgImgAlt;
 
   public function __construct($imgSrc, $imgAlt, $price, $bkgImgSrc, $bkgImgAlt)
   {
