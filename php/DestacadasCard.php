@@ -1,12 +1,14 @@
 <?php
-class DestacadasCard {
+class DestacadasCard
+{
   public $imgSrc;
   public $imgAlt;
   public $price;
   public $bkgImgSrc;
   public $bkgImgAlt;
 
-  public function __construct($imgSrc, $imgAlt, $price, $bkgImgSrc, $bkgImgAlt) {
+  public function __construct($imgSrc, $imgAlt, $price, $bkgImgSrc, $bkgImgAlt)
+  {
     $this->imgSrc = $imgSrc;
     $this->imgAlt = $imgAlt;
     $this->price = $price;
@@ -14,7 +16,8 @@ class DestacadasCard {
     $this->bkgImgAlt = $bkgImgAlt;
   }
 
-  public function display() {
+  public function display()
+  {
     echo '<div class="col">';
     echo '<div class="destacadasCard">';
     echo '<img src="' . $this->imgSrc . '" alt="' . $this->imgAlt . '">';
@@ -27,4 +30,3 @@ class DestacadasCard {
     echo '</div>';
   }
 }
-?>

@@ -441,26 +441,28 @@ footer {
 }
 
 .carousel-indicators {
-  bottom: 5px;
-}
-
-.cardContainer {
   position: relative;
-  display: flex;
-  justify-content: center;
 }
 
-.cardContainer .contenedor {
-  position: absolute;
-  bottom: 10px;
+.cardContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardContainer .cartBtn{
+  border: #ffffff solid 2px;
+}
+
+.contenedor{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .cardContainer img {
-  border: 8px solid #ffffff;
-  border-radius: 8px;
+  max-width: 200px;
 }
 
 .dropdown-center button{
@@ -474,7 +476,6 @@ footer {
   background-color: rgb(214, 214, 214);
   color: black;
 }
-
 
 #searchMenu{
   width: 100%;

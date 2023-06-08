@@ -13,7 +13,7 @@ $navItems = [
     "text" => "Contacto",
   ],
   [
-    "href" => "#carrito",
+    "href" => "carrito.php",
     "text" => "Carrito",
   ],
   [
@@ -30,15 +30,7 @@ $navItems = [
         <a class="navbar-brand position-absolute" href="#">
           <span>Pokard</span><img src="../img/favicon.svg" alt="Icono de Pokard" />
         </a>
-        <button
-          class="navbar-toggler custom-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <div class="hamburger-icon">
             <span class="line"></span>
             <span class="line"></span>
@@ -46,10 +38,7 @@ $navItems = [
         </button>
       </div>
 
-      <div
-        class="collapse navbar-collapse d-lg-flex justify-content-center"
-        id="navbarNavDropdown"
-      >
+      <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav d-flex gap-2 p-lg-0 p-4">
           <?php foreach ($navItems as $item) {
             if ($item["text"] == "Iniciar Sesión") {

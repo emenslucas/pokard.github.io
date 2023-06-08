@@ -1,7 +1,7 @@
 <section id="cartasSection">
-      <div class="container">
-        <h2 class="text-center mb-5">Cartas Destacadas</h2>
-      <div class="row">
+  <div class="container">
+    <h2 class="text-center mb-5">Cartas Destacadas</h2>
+    <div class="row">
       <?php
       require_once "php/DestacadasCard.php";
 
@@ -30,6 +30,6 @@
       }
       ?>
 
-      </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>

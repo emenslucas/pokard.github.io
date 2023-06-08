@@ -1,6 +1,7 @@
 <?php
 class InicioCard
 {
+  public $cardId;
   public $imgSrc;
   public $imgAlt;
   public $spanId;
@@ -28,4 +29,3 @@ class InicioCard
     echo "</div>";
   }
 }
-?>
