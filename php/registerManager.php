@@ -11,7 +11,7 @@ if ($clave != $clave2) {
   exit;
 }
 
-$consulta = "INSERT INTO usuario(`email`, `clave`,`usuario`) VALUES ('$email', '$clave','$usuario')";
+$consulta = "INSERT INTO usuario(`email`, `clave`,`usuario`) VALUES ('$email', MD5('$clave'),'$usuario')";
 
 if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
   header("Location: register.php?alta=ok");

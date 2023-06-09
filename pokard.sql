@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2023 a las 23:41:27
+-- Tiempo de generación: 09-06-2023 a las 04:47:30
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -99,7 +99,7 @@ INSERT INTO `energia` (`id`, `nombre`, `imagen`) VALUES
 CREATE TABLE `usuario` (
   `id` int(8) UNSIGNED NOT NULL,
   `email` varchar(50) NOT NULL,
-  `clave` varchar(20) NOT NULL,
+  `clave` varchar(32) NOT NULL,
   `nivel` varchar(10) NOT NULL DEFAULT 'usuario',
   `estado` enum('activo','banneado') NOT NULL DEFAULT 'activo',
   `usuario` varchar(10) NOT NULL
@@ -110,10 +110,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `email`, `clave`, `nivel`, `estado`, `usuario`) VALUES
-(14, 'lucas@davinci.edu.ar', '1234', 'Admin', 'activo', 'lpemens'),
-(34, 'facundo@gmail.com', '1234', 'usuario', 'activo', 'facu'),
-(35, 'facundo@gmail.com', '1234', 'usuario', 'activo', 'preiss'),
-(36, 'asdasdasdassda@asdadasdadasdadadada.com', '1234', 'usuario', 'activo', 'flanto');
+(43, 'asdasdasdassda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'usuario', 'activo', 'lpemens');
 
 --
 -- Índices para tablas volcadas
@@ -159,7 +156,7 @@ ALTER TABLE `energia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Restricciones para tablas volcadas
