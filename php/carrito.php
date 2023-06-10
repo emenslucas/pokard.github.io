@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <?php include_once "head.php"; ?>
 
 <body>
@@ -72,26 +73,19 @@
         echo "</div>";
         echo "</div>";
 
-
-        // Agregar la clase hidden al elemento col si $cart_count es mayor a 1
-        if ($cart_count > 1) {
-          echo '<div class="col-6 hidden">';
-        } else {
-          echo '<div class="col-6">';
-        }
-
-        echo '<div class="container d-flex infoCarta flex-column-custom">';
-
-        echo '<div class="row">';
-        echo '<div class="col d-flex gap-2">';
-
         $energiaSRC = $energias[$carta['id_energia']]['src'];
         $tipoEnergia = $energias[$carta['id_energia']]['tipo'];
 
+        // Agregar la clase hidden al elemento col si $cart_count es mayor a 1
+        $colClass = ($cart_count > 1) ? 'col-6 hidden' : 'col-6';
+
+        echo "<div class='$colClass'>";
+        echo '<div class="container d-flex infoCarta flex-column-custom">';
+        echo '<div class="row">';
+        echo '<div class="col d-flex gap-2">';
         echo "<img class='energia' src='$energiaSRC'>";
         echo "<span class='nombreCarta'>{$carta['nombre']}</span>";
         echo "</div>";
-
         echo '<div class="col d-flex align-items-center">';
         echo "<span class='poder'><span class='poderSize'>PS</span> {$carta['poder']}</span>";
         echo "</div>";
@@ -100,7 +94,6 @@
         echo '<input type="submit" value="Comprar" class="comprarBtn">';
         echo "<span>Precio: \${$carta['precio']}</span>";
         echo "</div>";
-
         echo "</div>";
         echo "</div>";
         echo "</div>";
@@ -119,8 +112,20 @@
   ?>
 
   <script>
+    function changeImgSize() {
+      const cols = document.querySelectorAll('.row .col-6');
+
+      cols.forEach(col => {
+        const img = col.classList.contains('hidden') ? col.previousElementSibling.querySelector('.imgCarta') : col.querySelector('.imgCarta');
+        if (img) {
+          img.style.width = col.classList.contains('hidden') ? '100px' : '200px';
+        }
+      });
+    }
+
     // Función para agregar evento de clic a las imágenes de las cartas
     function addClickEventToImages() {
+      changeImgSize();
       const cartImages = document.querySelectorAll('#carrito img');
       cartImages.forEach(img => {
         img.addEventListener('click', () => {
@@ -147,13 +152,8 @@
 
           // Ocultar todos los elementos infoCard excepto el primero
           const infoCards = document.querySelectorAll('.infoCarta');
-
           infoCards.forEach((infoCard, index) => {
-            if (index > 0) {
-              infoCard.classList.add('hidden');
-            }
-
-
+            infoCard.classList.toggle('hidden', index > 0);
           });
 
           // Actualizar los eventos de clic en las imágenes de las cartas
