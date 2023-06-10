@@ -64,6 +64,9 @@
                                     <form action="carrito.php" method="post">
                                         <input type="hidden" name="imagen" value="<?php echo $carta->imagen; ?>">
                                         <input type="hidden" name="precio" value="<?php echo $carta->precio; ?>">
+                                        <input type="hidden" name="nombre" value="<?php echo $carta->nombre; ?>">
+                                        <input type="hidden" name="id_energia" value="<?php echo $carta->id_energia; ?>">
+                                        <input type="hidden" name="poder" value="<?php echo $carta->poder; ?>">
                                         <input type="submit" value="Agregar al Carrito" class="btn cartBtn">
                                     </form>
                                 </div>

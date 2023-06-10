@@ -133,7 +133,7 @@ nav .navbar-brand {
 }
 
 #inicioSection,
-#cartas {
+#cartas, #carrito {
   margin-top: 80px; /* Navbar height */
 }
 
@@ -269,7 +269,8 @@ nav .navbar-brand {
 }
 
 .cartBtn:hover {
-  background-color: rgb(15, 15, 15);
+  background-color: white;
+  color: black;
 }
 
 .price {
@@ -375,6 +376,7 @@ textarea {
 footer {
   padding: 50px 0;
   background: rgba(35, 35, 35, 0.66);
+  width: 100%;
 }
 
 .loginBtn {
@@ -478,3 +480,58 @@ footer {
   max-width: 950px;
 }
 
+.eliminarBtn{
+  color: #EB9898;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration-line: underline;
+  background-color: transparent;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.energia{
+  width: 25px;
+}
+
+.nombreCarta {
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.infoCarta{
+  background-color: #232323;
+  border-radius: 14px;
+  padding: 1em;
+  max-width: 500px;
+  margin: 0;
+  margin-top: 35px;
+}
+
+.poder{
+font-weight: 500;
+font-size: 24px;
+}
+
+.poderSize{
+  font-size: 18px;
+}
+
+.comprarBtn{
+  background-color: white;
+  color: black;
+  height: fit-content;
+  margin: 0;
+  font-weight: 500;
+}
+
+.comprarContainer{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 20px;
+}

@@ -12,7 +12,7 @@ class CartaController {
         $cartas = array();
         if (!empty($array_cartas)) {
             foreach ($array_cartas as $clave => $valor) {
-                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"]);
+                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"],$array_cartas[$clave]["nombre"],$array_cartas[$clave]["id_energia"],$array_cartas[$clave]["poder"]);
                 $cartas[] = $carta;
             }
         }
@@ -24,11 +24,10 @@ class CartaController {
         $cartas = array();
         if (!empty($array_cartas)) {
             foreach ($array_cartas as $clave => $valor) {
-                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"]);
+                $carta = new Carta($array_cartas[$clave]["imagen"], $array_cartas[$clave]["precio"],$array_cartas[$clave]["nombre"],$array_cartas[$clave]["id_energia"],$array_cartas[$clave]["poder"]);
                 $cartas[] = $carta;
             }
         }
         return $cartas;
     }
 }
-?>
