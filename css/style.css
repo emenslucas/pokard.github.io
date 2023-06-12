@@ -133,7 +133,7 @@ nav .navbar-brand {
 }
 
 #inicioSection,
-#cartas, #carrito {
+#cartas, #carrito, #panel {
   margin-top: 80px; /* Navbar height */
 }
 
@@ -534,4 +534,40 @@ font-size: 24px;
   gap: 10px;
   flex-direction: column;
   margin-top: 20px;
+}
+
+.table{
+  max-width: 984px;
+}
+
+td a{
+  text-decoration: none;
+}
+
+#panel .container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-custom tr:nth-child(odd) {
+  background-color: black !important;
+}
+
+.table-custom tr:nth-child(even) {
+  background-color: #1e1e1e !important;
+}
+.table{
+--bs-table-color: none;
+--bs-table-bg: none;
+border-radius: 20px;
+border: 1px solid #1e1e1e;
+}
+
+#addCardBtn{
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border-radius: 10px;
+  padding: 0.5em;
 }
