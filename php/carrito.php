@@ -39,131 +39,60 @@
     3 => array('tipo' => 'Planta', 'src' => '../img/planta.svg'),
     4 => array('tipo' => 'Oscuridad', 'src' => '../img/oscuridad.svg')
   );
-
-  // Agregar variable para llevar un conteo de las cartas en el carrito
-  $cart_count = 0;
   ?>
 
-  <style>
-    /* Ocultar los elementos infoCard con la clase hidden */
-    .hidden {
-      display: none !important;
-    }
-  </style>
+<section id="carrito">
+    <div class="container">
+        <?php
+        // Mostrar el contenido del carrito
+        if (isset($_SESSION['carrito'])) {
+            echo '<h1 class="text-center pt-4 pb-4">Carrito</h1>';
+            foreach ($_SESSION['carrito'] as $imagen => $carta) {
+                $energiaSRC = $energias[$carta['id_energia']]['src'];
+                $tipoEnergia = $energias[$carta['id_energia']]['tipo'];
+                echo '<div class="container cartItem">';
+                echo '<div class="d-flex justify-content-end">';
+                echo '<form action="carrito.php" method="post">';
+                echo '<input type="hidden" name="eliminar_imagen" value="' . $imagen . '">';
+                echo '<input type="submit" value="X Eliminar del carrito" class="eliminarBtn">';
+                echo '</form>';
+                echo '</div>';
+                echo '<div class="row p-4 pt-2">';
+                echo '<div class="col-3 d-flex justify-content-center">';
+                echo "<img class='imgCarta' src='../img/$imagen' alt='$imagen'>";
+                echo '</div>';
+                echo '<div class="col-9 p-0">';
+                echo '<div class="container">';
+                echo '<div class="row">';
+                echo '<div class="col-8 d-flex gap-2">';
+                echo "<img class='energia' src='$energiaSRC'>";
+                echo "<span class='nombreCarta'>{$carta['nombre']}</span>";
+                echo '</div>';
+                echo '<div class="col-4 d-flex justify-content-end align-items-center">';
+                echo "<span class='poder'><span class='poderSize'>PS</span> {$carta['poder']}</span>";
+                echo '</div>';
+                echo "<span>Tipo de energía: $tipoEnergia</span>";
+                echo "<div class='comprarContainer'>";
+                echo '<input type="submit" value="Comprar" class="comprarBtn">';
+                echo "<span>Precio: \${$carta['precio']}</span>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>El carrito está vacío.</p>";
+        }
+        ?>
+    </div>
+</section>
 
-  <section id="carrito">
-    <?php
-    // Mostrar el contenido del carrito
-    if (isset($_SESSION['carrito'])) {
-      echo '<h1 class="text-center pt-4 pb-4">Carrito</h1>';
-      foreach ($_SESSION['carrito'] as $imagen => $carta) {
-        // Incrementar el valor de $cart_count en uno cada vez que se itera sobre una carta
-        $cart_count++;
-
-        echo '<div class="container mt-4">';
-        echo '<div class="row">';
-        echo '<div class="col-6">';
-        echo '<div class="float-end">';
-        echo '<form action="carrito.php" method="post">';
-        echo '<input type="hidden" name="eliminar_imagen" value="' . $imagen . '">';
-        echo '<input type="submit" value="Eliminar del carrito" class="eliminarBtn">';
-        echo '</form>';
-        echo "<img class='imgCarta' src='../img/$imagen'>";
-        echo "</div>";
-        echo "</div>";
-
-        $energiaSRC = $energias[$carta['id_energia']]['src'];
-        $tipoEnergia = $energias[$carta['id_energia']]['tipo'];
-
-        // Agregar la clase hidden al elemento col si $cart_count es mayor a 1
-        $colClass = ($cart_count > 1) ? 'col-6 hidden' : 'col-6';
-
-        echo "<div class='$colClass'>";
-        echo '<div class="container d-flex infoCarta flex-column-custom">';
-        echo '<div class="row">';
-        echo '<div class="col d-flex gap-2">';
-        echo "<img class='energia' src='$energiaSRC'>";
-        echo "<span class='nombreCarta'>{$carta['nombre']}</span>";
-        echo "</div>";
-        echo '<div class="col d-flex align-items-center justify-content-end">';
-        echo "<span class='poder'><span class='poderSize'>PS</span> {$carta['poder']}</span>";
-        echo "</div>";
-        echo "<span>Tipo de energía: $tipoEnergia</span>";
-        echo "<div class='comprarContainer'>";
-        echo '<input type="submit" value="Comprar" class="comprarBtn">';
-        echo "<span>Precio: \${$carta['precio']}</span>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-
-        echo "</div>";
-      }
-    } else {
-      echo "<p>El carrito está vacío.</p>";
-    }
-    ?>
-  </section>
 
   <?php
   include_once "footer.php";
   include_once "scripts.php";
   ?>
 
-  <script>
-    function changeImgSize() {
-      const cols = document.querySelectorAll('.row .col-6');
-
-      cols.forEach(col => {
-        const img = col.classList.contains('hidden') ? col.previousElementSibling.querySelector('.imgCarta') : col.querySelector('.imgCarta');
-        if (img) {
-          img.style.width = col.classList.contains('hidden') ? '100px' : '200px';
-        }
-      });
-    }
-
-    // Función para agregar evento de clic a las imágenes de las cartas
-    function addClickEventToImages() {
-      changeImgSize();
-      const cartImages = document.querySelectorAll('#carrito img');
-      cartImages.forEach(img => {
-        img.addEventListener('click', () => {
-          // Obtener el elemento infoCard de la primera carta
-          const firstInfoCard = document.querySelector('.infoCarta');
-
-          // Obtener el elemento infoCard de la carta que fue clickeada
-          const clickedInfoCard = img.closest('.row').querySelector('.infoCarta');
-
-          // Intercambiar el contenido de los elementos infoCard
-          [firstInfoCard.innerHTML, clickedInfoCard.innerHTML] = [clickedInfoCard.innerHTML, firstInfoCard.innerHTML];
-
-          // Mostrar el elemento infoCard de la primera carta
-          firstInfoCard.style.display = 'block';
-
-          // Obtener el contenedor de la imagen y el botón de eliminar de la primera carta
-          const firstImageContainer = firstInfoCard.closest('.row').querySelector('.float-end');
-
-          // Obtener el contenedor de la imagen y el botón de eliminar de la carta que fue clickeada
-          const clickedImageContainer = img.closest('.float-end');
-
-          // Intercambiar el contenido de los contenedores de la imagen y el botón de eliminar
-          [firstImageContainer.innerHTML, clickedImageContainer.innerHTML] = [clickedImageContainer.innerHTML, firstImageContainer.innerHTML];
-
-          // Ocultar todos los elementos infoCard excepto el primero
-          const infoCards = document.querySelectorAll('.infoCarta');
-          infoCards.forEach((infoCard, index) => {
-            infoCard.classList.toggle('hidden', index > 0);
-          });
-
-          // Actualizar los eventos de clic en las imágenes de las cartas
-          addClickEventToImages();
-        });
-      });
-    }
-
-    // Agregar evento de clic a las imágenes de las cartas al cargar la página
-    addClickEventToImages();
-  </script>
 </body>
 
 </html>
