@@ -521,6 +521,10 @@ footer {
   font-size: 32px;
 }
 
+.nombreCarta::first-letter {
+  text-transform: uppercase;
+}
+
 .poder{
 font-weight: 500;
 font-size: 24px;
