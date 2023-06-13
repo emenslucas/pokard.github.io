@@ -5,17 +5,17 @@
       <div class="row">
         <div class="col-12 col-lg-6">
           <label for="fullName">Nombre</label>
-          <input type="text" name="fullName" id="fullName" required />
+          <input class="formInput p-2" type="text" name="fullName" id="fullName" required />
         </div>
         <div class="col-12 col-lg-6">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" required />
+          <input class="formInput p-2" type="email" name="email" id="email" required />
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <label for="message">Mensaje</label>
-          <textarea name="message" id="message"></textarea>
+          <textarea class="formInput p-2" name="message" id="message"></textarea>
         </div>
       </div>
       <input type="hidden" name="formSubmitted" value="true" />

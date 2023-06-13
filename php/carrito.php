@@ -5,9 +5,8 @@
 
 <body>
   <?php
-  include_once "header.php";
   session_start();
-
+  include_once "header.php";
   // Verificar si se ha enviado información de una carta para agregar al carrito
   if (isset($_POST['imagen'])) {
     $imagen = $_POST['imagen'];
@@ -56,7 +55,7 @@
     <?php
     // Mostrar el contenido del carrito
     if (isset($_SESSION['carrito'])) {
-      echo '<h1 class="text-center">Carrito</h1>';
+      echo '<h1 class="text-center pt-4 pb-4">Carrito</h1>';
       foreach ($_SESSION['carrito'] as $imagen => $carta) {
         // Incrementar el valor de $cart_count en uno cada vez que se itera sobre una carta
         $cart_count++;
@@ -86,7 +85,7 @@
         echo "<img class='energia' src='$energiaSRC'>";
         echo "<span class='nombreCarta'>{$carta['nombre']}</span>";
         echo "</div>";
-        echo '<div class="col d-flex align-items-center">';
+        echo '<div class="col d-flex align-items-center justify-content-end">';
         echo "<span class='poder'><span class='poderSize'>PS</span> {$carta['poder']}</span>";
         echo "</div>";
         echo "<span>Tipo de energía: $tipoEnergia</span>";

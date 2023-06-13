@@ -21,7 +21,30 @@ $navItems = [
     "text" => "Iniciar Sesión",
     "class" => "loginBtn ps-2 text-center",
   ],
-]; ?>
+];
+
+
+if (isset($_SESSION['usuario'])) {
+  for ($i = 0; $i < count($navItems); $i++) {
+    if ($navItems[$i]['text'] == 'Iniciar Sesión') {
+      $navItems[$i]['text'] = 'Cerrar Sesión';
+      $navItems[$i]['href'] = 'logout.php';
+      break;
+    }
+  }
+}
+
+
+if (!isset($_SESSION['nivel']) || $_SESSION['nivel'] == 'usuario' && isset($_SESSION['nivel'])) {
+  foreach ($navItems as $key => $item) {
+    if ($item['text'] == 'Panel') {
+      unset($navItems[$key]);
+      $navItems = array_values($navItems);
+      break;
+    }
+  }
+}
+?>
 
 <header>
   <nav class="p-0 navbar navbar-expand-lg fixed-top">
@@ -40,7 +63,9 @@ $navItems = [
 
       <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav d-flex gap-2 p-lg-0 p-4">
-          <?php foreach ($navItems as $item) {
+
+          <?php
+          foreach ($navItems as $item) {
             if ($item["text"] == "Iniciar Sesión") {
               echo "<li>";
               echo '<a class="nav-link loginBtn ps-2 text-center';

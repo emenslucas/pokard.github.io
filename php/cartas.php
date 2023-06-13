@@ -4,6 +4,7 @@
 
 <body>
     <?php
+    session_start();
     include_once "../php/header.php";
     require_once "config.php";
     require_once "CartaController.php";
@@ -18,7 +19,7 @@
             <div id="searchMenu" class="row">
                 <div class="col-6">
                     <label class="mb-3" for="nombreCarta">Nombre de carta</label>
-                    <input type="text" name="nombreCarta" id="nombreCarta" required />
+                    <input class="formInput" type="text" name="nombreCarta" id="nombreCarta" required />
                 </div>
                 <div class="col-6">
                     <label class="mb-3" for="">Tipo de energía</label>

@@ -14,19 +14,19 @@
         <div class="row">
           <div class="col-12">
             <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" id="usuario" required />
+            <input class="formInput p-2" type="text" name="usuario" id="usuario" required />
           </div>
           <div class="col-12">
             <label for="email">Correo electrónico</label>
-            <input type="text" name="email" id="email" required />
+            <input class="formInput p-2" type="text" name="email" id="email" required />
           </div>
           <div class="col-12">
             <label for="clave">Contraseña</label>
-            <input type="password" name="clave" id="clave" required />
+            <input class="formInput p-2" type="password" name="clave" id="clave" required />
           </div>
           <div class="col-12">
             <label for="clave2">Confirmar contraseña</label>
-            <input type="password" name="clave2" id="clave2" required />
+            <input class="formInput p-2" type="password" name="clave2" id="clave2" required />
           </div>
         </div>
         <div class="row">

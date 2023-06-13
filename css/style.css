@@ -133,7 +133,7 @@ nav .navbar-brand {
 }
 
 #inicioSection,
-#cartas, #carrito, #panel {
+#cartas, #carrito, #panel, #eliminarItem, #modificarItem, #agregarItem {
   margin-top: 80px; /* Navbar height */
 }
 
@@ -343,15 +343,18 @@ form label {
   font-weight: 600;
 }
 
-input,
-textarea {
-  background-color: #232323;
+.formInput {
+  background-color: #191919;
   border: none;
   border-radius: 8px;
   color: white;
   width: 100%;
   margin-bottom: 1em;
-  padding: 1em;
+}
+
+.formInput:focus {
+  background-color: #353535;
+  color: white;
 }
 
 input {
@@ -360,6 +363,12 @@ input {
 
 textarea {
   height: 140px;
+}
+
+select{
+  background-color: #191919 !important;
+  color: white !important;
+  border: none !important;
 }
 
 .btnSubmit {
@@ -484,13 +493,9 @@ footer {
   color: #EB9898;
   font-weight: 400;
   font-size: 16px;
+  border: none;
   text-decoration-line: underline;
   background-color: transparent;
-  width: fit-content;
-  padding: 0;
-  margin: 0;
-  height: fit-content;
-  margin-bottom: 10px;
 }
 
 .energia{
@@ -524,8 +529,10 @@ font-size: 24px;
   background-color: white;
   color: black;
   height: fit-content;
-  margin: 0;
   font-weight: 500;
+  border-radius: 8px;
+  width: 100%;
+  padding: 1em;
 }
 
 .comprarContainer{
@@ -570,4 +577,29 @@ border: 1px solid #1e1e1e;
   color: black;
   border-radius: 10px;
   padding: 0.5em;
+}
+
+.buttonSubmit{
+width: 100%;
+background-color: white;
+color: black;
+border-radius: 4px;
+font-weight: 600;
+font-size: 18px;
+transition: 0.2s;
+}
+
+.buttonSubmit:hover{
+background-color: rgb(209, 209, 209);
+transition: 0.2s;
+color: black;
+}
+
+#agregarItem .container{
+  max-width: 400px;
+}
+
+#carrito{
+  background-color: #171717;
+  height: calc(100vh - 204px);
 }
