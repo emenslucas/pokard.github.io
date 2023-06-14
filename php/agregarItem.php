@@ -4,6 +4,7 @@
 <?php
 require_once "config.php";
 include_once "head.php";
+$db_handle = new DBController();
 ?>
 
 <body>
@@ -16,11 +17,10 @@ include_once "head.php";
       if (!isset($_SESSION['nivel']) || $_SESSION['nivel'] != 'Admin') {
         die("<h1>No tenés permisos para ingresar al panel de administración</h1>");
       }
-      if (mysqli_connect("localhost", "root", "", "pokard")) {
-        $con = mysqli_connect('localhost', 'root', '', 'pokard');
+     
         $consulta = "SELECT id, nombre FROM energia";
-        $resultado = mysqli_query($con, $consulta);
-      }
+        $resultado = mysqli_query($db_handle->connectDB(), $consulta);
+
       ?>
       <h1 class="text-center pt-4 pb-4">Agregar Carta</h1>
       <div id="contenedorAgregar" class="container">

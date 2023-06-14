@@ -4,10 +4,11 @@
     <div class="row">
       <?php
       require_once "DestacadasCard.php";
+      require_once "config.php";
+      $db_handle = new DBController();
 
-      $con = mysqli_connect('localhost', 'root', '', 'pokard');
       $consulta = "SELECT * FROM carta ORDER BY precio DESC LIMIT 3";
-      $resultado = mysqli_query($con, $consulta);
+      $resultado = mysqli_query($db_handle->connectDB(), $consulta);
 
       $cards = [];
       while ($row = mysqli_fetch_assoc($resultado)) {

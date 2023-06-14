@@ -3,7 +3,8 @@
 
 <?php
 require_once "config.php";
-include_once "head.php";
+include_once "head.php";;
+$db_handle = new DBController();
 ?>
 
 <body>
@@ -13,15 +14,14 @@ include_once "head.php";
 			session_start();
 			include_once "header.php";
 
-			if (mysqli_connect("localhost", "root", "", "pokard")) {
-				$con = mysqli_connect('localhost', 'root', '', 'pokard');
+			if ($db_handle->connectDB()) {
 				if (isset($_GET['idProducto'])) {
 					$idCarta = $_GET['idProducto'];
 					$consulta = "SELECT id,nombre,precio,imagen,id_energia,poder FROM carta WHERE id='$idCarta'";
 					$consulta2 = "SELECT id, nombre FROM energia";
-					$resultado2 = mysqli_query($con, $consulta2);
+					$resultado2 = mysqli_query($db_handle->connectDB(), $consulta2);
 
-					if ($resultado = mysqli_query($con, $consulta)) {
+					if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
 						//GUARDA el RESULTADO DE "consulta SQL"
 						$fila = mysqli_fetch_array($resultado);
 

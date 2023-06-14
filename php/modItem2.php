@@ -3,6 +3,8 @@
 
 <?php
 include_once "head.php";
+require_once "config.php";
+$db_handle = new DBController();
 ?>
 
 <body>
@@ -11,15 +13,13 @@ include_once "head.php";
 			<?php
 			include_once "header.php";
 
-			if (mysqli_connect("localhost", "root", "", "pokard")) {
-				$con = mysqli_connect('localhost', 'root', '', 'pokard');
-
+			if ($db_handle->connectDB()) {
 				if (isset($_POST['idProducto'])) {
 					$idCarta = $_POST['idProducto'];
 
 					// Obtener los valores antiguos de la carta
 					$consulta = "SELECT nombre, precio, imagen, id_energia, poder FROM carta WHERE id='$idCarta'";
-					$resultado = mysqli_query($con, $consulta);
+					$resultado = mysqli_query($db_handle->connectDB(), $consulta);
 					$fila = mysqli_fetch_array($resultado);
 					$nombreAnterior = $fila['nombre'];
 					$precioAnterior = $fila['precio'];
@@ -74,10 +74,10 @@ include_once "head.php";
 					}
 
 					// Actualizar la información de la carta en la base de datos
-					mysqli_query($con, "UPDATE carta SET nombre='$nombreCarta', precio='$precioCarta', imagen='$imagenCarta', id_energia='$energiaCarta', poder='$poderCarta' WHERE id='$idCarta'");
+					mysqli_query($db_handle->connectDB(), "UPDATE carta SET nombre='$nombreCarta', precio='$precioCarta', imagen='$imagenCarta', id_energia='$energiaCarta', poder='$poderCarta' WHERE id='$idCarta'");
 				}
 
-				if ($resultado = mysqli_query($con, $consulta)) {
+				if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
 					//GUARDA el RESULTADO DE "consulta SQL"
 					echo "<h1>La carta se pudo modificar correctamente. </h1>";
 				}

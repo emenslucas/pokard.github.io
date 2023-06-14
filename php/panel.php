@@ -6,6 +6,9 @@
 	<?php
 	session_start();
 	include_once "header.php";
+	require_once "config.php";
+	$db_handle = new DBController();
+	
 
 	//hacer una tabla que muestre categorias modificar borrar
 	echo "<section id='panel'>";
@@ -14,19 +17,18 @@
 	if (isset($_SESSION['nivel']) && $_SESSION['nivel'] == 'usuario' || !isset($_SESSION['nivel'])) {
 		echo "<h1 class='mb-4'>No tienes permisos para acceder a esta sección</h1>";
 	} else {
-		if (mysqli_connect("localhost", "root", "", "pokard")) {
+		if ($db_handle->connectDB()) {
 			//servidor, usuario administrador, contraseña, base de datos 
 
 			echo "<h1 class='mb-4 mt-4'>Listado Cartas - ABM</h1>";
 			echo "<a id='addCardBtn' class='mb-4' href='agregarItem.php'> + Agregar Carta</a>";
 
-			$con = mysqli_connect('localhost', 'root', '', 'pokard');
 			//guarda los datos de conexion
 			$consulta = "SELECT id,nombre,precio,imagen,id_energia,poder FROM carta ORDER BY id DESC";
 
 			//guarda la "consulta SQL"
 
-			if ($resultado = mysqli_query($con, $consulta)) {
+			if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
 				//GUARDA el RESULTADO DE "consulta SQL"
 				echo '<table class="table table-custom">';
 				echo '<thead>';

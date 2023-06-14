@@ -7,6 +7,8 @@
   <?php
   session_start();
   include_once "header.php";
+  require_once "config.php";
+  $db_handle = new DBController();
   
   // Verificar si se ha enviado información de una carta para agregar al carrito
   if (isset($_POST['imagen'])) {
@@ -60,9 +62,8 @@
     exit;
   }
 
-  $con = mysqli_connect('localhost', 'root', '', 'pokard');
   $consulta = "SELECT * FROM energia";
-  $resultado = mysqli_query($con, $consulta);
+  $resultado = mysqli_query($db_handle->connectDB(), $consulta);
 
 
   $energias = array();

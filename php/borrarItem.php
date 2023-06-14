@@ -9,10 +9,12 @@
 			<?php
 			session_start();
 			include_once "header.php";
+			require_once "config.php";
+			$db_handle = new DBController();
 
-			if (mysqli_connect("localhost", "root", "", "pokard")) {
+			if ($db_handle->connectDB()) {
 
-				$con = mysqli_connect('localhost', 'root', '', 'pokard');
+				// $con = mysqli_connect('localhost', 'root', '', 'pokard');
 
 				if (isset($_GET['idProducto'])) {
 					$idCarta = $_GET['idProducto'];
@@ -20,7 +22,7 @@
 
 					$consulta = "DELETE FROM carta WHERE id='$idCarta'";
 
-					if ($resultado = mysqli_query($con, $consulta)) {
+					if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
 						//GUARDA el RESULTADO DE "consulta SQL"
 						echo "<h1>La carta $nombreCarta fue eliminada correctamente. </h1>";
 					}
