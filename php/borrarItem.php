@@ -23,9 +23,8 @@
 					$consulta = "DELETE FROM carta WHERE id='$idCarta'";
 
 					if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
-						//GUARDA el RESULTADO DE "consulta SQL"
-						echo "<h1>La carta $nombreCarta fue eliminada correctamente. </h1>";
-					}
+						echo "<h1>La carta $nombreCarta fue eliminada correctamente.</h1>";
+					  }
 				}
 			} else {
 				echo "No se pudo ELIMINAR $nombreCarta";

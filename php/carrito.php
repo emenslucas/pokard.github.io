@@ -64,10 +64,11 @@
 
   $consulta = "SELECT * FROM energia";
   $resultado = mysqli_query($db_handle->connectDB(), $consulta);
+  
 
 
   $energias = array();
-  while ($fila = mysqli_fetch_assoc($resultado)) {
+ foreach($resultado as $fila){
     $id_energia = $fila['id'];
     $tipo = $fila['nombre'];
     $src = $fila['imagen'];

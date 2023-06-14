@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2023 a las 02:23:12
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Servidor: 127.0.0.1:3463
+-- Tiempo de generación: 14-06-2023 a las 15:18:54
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `carta` (
   `descripcion` varchar(50) DEFAULT NULL,
   `id_energia` int(11) DEFAULT NULL,
   `poder` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `carta`
@@ -65,7 +65,7 @@ CREATE TABLE `energia` (
   `id` int(11) NOT NULL,
   `nombre` varchar(10) NOT NULL,
   `imagen` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `energia`
@@ -97,7 +97,7 @@ CREATE TABLE `usuario` (
   `nivel` varchar(10) NOT NULL DEFAULT 'usuario',
   `estado` enum('activo','banneado') NOT NULL DEFAULT 'activo',
   `usuario` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -105,7 +105,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `email`, `clave`, `nivel`, `estado`, `usuario`) VALUES
 (43, 'asdasdasdassda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Admin', 'activo', 'lpemens'),
-(44, 'adrianemens@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'usuario', 'activo', 'preiss');
+(44, 'adrianemens@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'usuario', 'activo', 'preiss'),
+(45, 'facu@facu.com', 'f8e0920f29985ad1a2724161e86faa65', 'Admin', 'activo', 'facu');
 
 --
 -- Índices para tablas volcadas
@@ -151,7 +152,7 @@ ALTER TABLE `energia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Restricciones para tablas volcadas

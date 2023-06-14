@@ -17,7 +17,7 @@ if ($db_handle->connectDB()) {
     if (move_uploaded_file($img_tmp, $carpeta_destino . $img)) {
       // La imagen se ha cargado correctamente, ahora realizamos la inserción en la base de datos
       $consulta = "INSERT INTO carta (nombre, precio, poder, descripcion, imagen, id_energia) VALUES ('$nombre', '$precio', '$poder','', '$img', '$energia')";
-      if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
+    if ($resultado = mysqli_query($db_handle->connectDB(), $consulta)) {
         header("Location: panel.php?item=ok");
       } else {
         header("Location: panel.php?error=error");

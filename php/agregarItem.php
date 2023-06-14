@@ -18,8 +18,10 @@ $db_handle = new DBController();
         die("<h1>No tenés permisos para ingresar al panel de administración</h1>");
       }
      
+      if ($db_handle->connectDB()) {
         $consulta = "SELECT id, nombre FROM energia";
-        $resultado = mysqli_query($db_handle->connectDB(), $consulta);
+        $resultado = $db_handle->runQuery($consulta);
+      }
 
       ?>
       <h1 class="text-center pt-4 pb-4">Agregar Carta</h1>
@@ -46,9 +48,10 @@ $db_handle = new DBController();
               <label for="inputEnergy">Tipo Energia</label>
               <select class="form-control mb-3" id="inputEnergy" name="energy" required>
                 <?php
-                while ($fila =  mysqli_fetch_array($resultado)) {
-                  echo "<option value='$fila[id]'>$fila[nombre]</option>";
-                }
+              foreach ($resultado as $fila) {
+                echo "<option value='{$fila['id']}'>{$fila['nombre']}</option>";
+              }
+              
                 ?>
               </select>
             </div>
