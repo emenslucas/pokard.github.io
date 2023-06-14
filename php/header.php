@@ -50,7 +50,7 @@ if (!isset($_SESSION['nivel']) || $_SESSION['nivel'] == 'usuario' && isset($_SES
   <nav class="p-0 navbar navbar-expand-lg fixed-top">
     <div class="container-fluid p-0">
       <div class="navbar-subContainer p-1 p-lg-0">
-        <a class="navbar-brand position-absolute" href="#">
+        <a class="navbar-brand position-absolute" href="index.php">
           <span>Pokard</span><img src="../img/favicon.svg" alt="Icono de Pokard" />
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
