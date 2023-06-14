@@ -17,12 +17,13 @@
 		if (mysqli_connect("localhost", "root", "", "pokard")) {
 			//servidor, usuario administrador, contraseña, base de datos 
 
-			echo "<h1 class='mb-4'>Listado Cartas - ABM</h1>";
+			echo "<h1 class='mb-4 mt-4'>Listado Cartas - ABM</h1>";
 			echo "<a id='addCardBtn' class='mb-4' href='agregarItem.php'> + Agregar Carta</a>";
 
 			$con = mysqli_connect('localhost', 'root', '', 'pokard');
 			//guarda los datos de conexion
-			$consulta = "SELECT id, nombre,precio FROM carta";
+			$consulta = "SELECT id,nombre,precio,imagen,id_energia,poder FROM carta ORDER BY id DESC";
+
 			//guarda la "consulta SQL"
 
 			if ($resultado = mysqli_query($con, $consulta)) {
@@ -44,7 +45,9 @@
 					echo '<th scope="row">' . $contador . '</th>';
 					echo '<td>' . $fila['nombre'] . '</td>';
 					echo '<td>' . $fila['precio'] . '</td>';
-					echo "<td><a href=modItem.php?idProducto=$fila[id]&nombreProducto=$fila[nombre]><img src='../img/editar.svg' alt=''></a><a href=borrarItem.php?idProducto=$fila[id]&nombreProducto=$fila[nombre]><img src='../img/eliminar.svg' alt=''></a></td>";
+					echo "<td><a href=modItem.php?idProducto=$fila[id]><img src='../img/editar.svg' alt=''></a>
+					
+					<a href=borrarItem.php?idProducto=$fila[id]&nombreProducto=$fila[nombre]><img src='../img/eliminar.svg' alt=''></a></td>";
 					echo '</tr>';
 					$contador++;
 				}
@@ -59,6 +62,11 @@
 	?>
 	</div>
 	</section>
+
+	<?php
+	include_once "footer.php";
+	include_once "scripts.php";
+	?>
 </body>
 
 </html>

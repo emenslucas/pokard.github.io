@@ -1,7 +1,10 @@
 body {
-  background-color: black;
+  background-color: rgb(10, 10, 10);
   font-family: "Clash Display", sans-serif;
   color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 section {
@@ -24,8 +27,7 @@ nav .navbar-brand {
   color: white;
 }
 
-.nav-item a:hover,
-.nav-item .active {
+.nav-link:focus, .nav-link:hover {
   color: #b2ffe3 !important;
 }
 
@@ -133,7 +135,7 @@ nav .navbar-brand {
 }
 
 #inicioSection,
-#cartas, #carrito, #panel, #eliminarItem, #modificarItem, #agregarItem {
+#cartas, #carrito, #panel, #eliminarItem, #modificarItem, #agregarItem, #modificadoItem {
   margin-top: 80px; /* Navbar height */
 }
 
@@ -252,11 +254,15 @@ nav .navbar-brand {
   position: relative;
 }
 
+.imgCard{
+  width: 200px;
+}
+
 .bkgCard {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.4);
+  transform: translate(-50%, -50%) scale(1.1);
   filter: blur(5px);
   z-index: -1;
 }
@@ -386,6 +392,7 @@ footer {
   padding: 50px 0;
   background: rgba(35, 35, 35, 0.66);
   width: 100%;
+  margin-top: auto;
 }
 
 .loginBtn {
@@ -399,6 +406,21 @@ footer {
 .loginBtn:hover {
   background-color: #95bcce;
   transition: 0.2s;
+  color: black !important;
+}
+
+.logoutBtn {
+  background-color: #eeaeae;
+  color: black !important;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.logoutBtn:hover {
+  background-color: #ff7676 !important;
+  transition: 0.2s;
+  color: black !important;
 }
 
 /* Login page */
@@ -420,6 +442,7 @@ footer {
   height: 200px;
   width: 200px;
   filter: blur(68px);
+  z-index: -1;
 }
 
 #bkgCircleOrange {
@@ -491,7 +514,7 @@ footer {
 
 .cartItem{
   background-color: #232323;
-  max-width: 600px;
+  max-width: 800px;
   border-radius: 5px;
 }
 
@@ -603,7 +626,7 @@ transition: 0.2s;
 color: black;
 }
 
-#agregarItem .container{
+#agregarItem .container, #modificarItem .container{
   max-width: 400px;
 }
 

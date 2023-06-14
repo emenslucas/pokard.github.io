@@ -5,12 +5,3 @@
   </div>
 </footer>
 
-<script>
-  let footer = document.querySelector('footer');
-  let bodyHeight = document.body.scrollHeight;
-  if (bodyHeight < window.innerHeight) {
-    footer.style.position = 'absolute';
-    footer.style.bottom = '0';
-  }
-</script>
-

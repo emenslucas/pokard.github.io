@@ -15,13 +15,13 @@
     ?>
     <section id="cartas">
         <div class="container d-flex flex-column align-items-center">
-            <h1 class="text-center mb-4">Cartas</h1>
+            <h1 class="text-center mt-4 mb-4">Cartas</h1>
             <div id="searchMenu" class="row">
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <label class="mb-3" for="nombreCarta">Nombre de carta</label>
                     <input class="formInput" type="text" name="nombreCarta" id="nombreCarta" required />
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-sm-12">
                     <label class="mb-3" for="">Tipo de energía</label>
                     <div class="dropdown-center">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Seleccionar tipo de energía</button>
@@ -59,7 +59,7 @@
                     ?>
                         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                             <div class="cardContainer">
-                                <img class="img-fluid" src="../img/<?php echo $carta->imagen; ?>">
+                                <img class="img-fluid" src="../img/cartas/<?php echo $carta->imagen; ?>">
                                 <div class="contenedor">
                                     <div class="price"><?php echo "$" . $carta->precio; ?></div>
                                     <form action="carrito.php" method="post">

@@ -29,7 +29,7 @@ if (isset($_SESSION['usuario'])) {
     if ($navItems[$i]['text'] == 'Iniciar Sesión') {
       $navItems[$i]['text'] = 'Cerrar Sesión';
       $navItems[$i]['href'] = 'logout.php';
-      break;
+      $navItems[$i]['class'] = 'logoutBtn ps-2 text-center';
     }
   }
 }

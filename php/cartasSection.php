@@ -5,11 +5,14 @@
       <?php
       require_once "DestacadasCard.php";
 
-      $cards = [
-        new DestacadasCard("../img/card1.svg", "", "$1000", "../img/card1.svg", ""),
-        new DestacadasCard("../img/card2.svg", "", "$1000", "../img/card2.svg", ""),
-        new DestacadasCard("../img/card3.svg", "", "$1000", "../img/card3.svg", ""),
-      ];
+      $con = mysqli_connect('localhost', 'root', '', 'pokard');
+      $consulta = "SELECT id, nombre, precio, imagen FROM carta ORDER BY precio DESC LIMIT 3";
+      $resultado = mysqli_query($con, $consulta);
+
+      $cards = [];
+      while ($row = mysqli_fetch_assoc($resultado)) {
+        $cards[] = new DestacadasCard($row['imagen'], $row['precio'], $row['imagen'], $row['imagen']);
+      }
 
       if (count($cards) % 2 == 0) {
         foreach ($cards as $card) {
@@ -29,6 +32,8 @@
         echo "</div>";
       }
       ?>
+
+
 
     </div>
   </div>
