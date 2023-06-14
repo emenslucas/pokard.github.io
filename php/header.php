@@ -1,7 +1,7 @@
 <?php
 $navItems = [
   [
-    "href" => "index.php#inicio",
+    "href" => "index.php",
     "text" => "Inicio",
   ],
   [
