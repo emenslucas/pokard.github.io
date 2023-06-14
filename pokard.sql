@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2023 a las 04:47:30
+-- Tiempo de generación: 14-06-2023 a las 02:23:12
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `carta` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(15) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
   `precio` double NOT NULL,
   `imagen` varchar(250) DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
@@ -42,31 +42,18 @@ CREATE TABLE `carta` (
 --
 
 INSERT INTO `carta` (`id`, `nombre`, `precio`, `imagen`, `descripcion`, `id_energia`, `poder`) VALUES
-(1, 'Charmander', 1000, 'charmanderBasico.svg', '', 1, 70),
-(2, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(3, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(4, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(5, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(6, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(7, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(8, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(9, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(10, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(11, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(12, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(13, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(14, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(15, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(16, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(17, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(18, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(19, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(20, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(21, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(22, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(23, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(24, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70),
-(26, 'charmander', 5000, 'charmanderBasico.svg', '', 1, 70);
+(27, 'Charmander', 2000, 'charmander.png', '', 1, 70),
+(28, 'Celebi', 4000, 'celebi.png', '', 2, 180),
+(29, 'Lucario', 10000, 'lucario.png', '', 7, 210),
+(30, 'Luxray', 10000, 'luxray.png', '', 5, 210),
+(31, 'Squirtle', 1000, 'squirtle.png', '', 3, 60),
+(32, 'Totodile', 1500, 'totodile.png', '', 3, 70),
+(33, 'Typhlosion', 5000, 'typhlosion.png', '', 1, 160),
+(34, 'Umbreon', 9000, 'umbreon.png', '', 8, 200),
+(35, 'Venusaur', 15000, 'venusaur.png', '', 2, 230),
+(36, 'Blastoise y Piplup', 12000, 'blastoisePiplup.png', '', 3, 270),
+(38, 'Charmander', 1500, 'charmander.png', '', 1, 70),
+(39, 'Croagunk', 500, 'croagunk.png', '', 6, 60);
 
 -- --------------------------------------------------------
 
@@ -85,10 +72,17 @@ CREATE TABLE `energia` (
 --
 
 INSERT INTO `energia` (`id`, `nombre`, `imagen`) VALUES
-(1, 'fuego', 'fuego.svg'),
-(2, 'planta', 'planta.svg'),
-(3, 'agua', 'agua.svg'),
-(4, 'fantasma', 'fantasma.svg');
+(1, 'Fuego', 'fuego.svg'),
+(2, 'Planta', 'planta.svg'),
+(3, 'Agua', 'agua.svg'),
+(5, 'Rayo', 'rayo.svg'),
+(6, 'Psiquico', 'psiquico.svg'),
+(7, 'Lucha', 'lucha.svg'),
+(8, 'Oscura', 'oscura.svg'),
+(9, 'Metálica', 'metalica.svg'),
+(10, 'Incolora', 'incolora.svg'),
+(11, 'Hada', 'hada.svg'),
+(12, 'Dragón', 'dragon.svg');
 
 -- --------------------------------------------------------
 
@@ -110,7 +104,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `email`, `clave`, `nivel`, `estado`, `usuario`) VALUES
-(43, 'asdasdasdassda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'usuario', 'activo', 'lpemens');
+(43, 'asdasdasdassda@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Admin', 'activo', 'lpemens'),
+(44, 'adrianemens@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'usuario', 'activo', 'preiss');
 
 --
 -- Índices para tablas volcadas
@@ -144,19 +139,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `carta`
 --
 ALTER TABLE `carta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `energia`
 --
 ALTER TABLE `energia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Restricciones para tablas volcadas
