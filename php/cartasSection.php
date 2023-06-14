@@ -6,12 +6,12 @@
       require_once "DestacadasCard.php";
 
       $con = mysqli_connect('localhost', 'root', '', 'pokard');
-      $consulta = "SELECT id, nombre, precio, imagen FROM carta ORDER BY precio DESC LIMIT 3";
+      $consulta = "SELECT * FROM carta ORDER BY precio DESC LIMIT 3";
       $resultado = mysqli_query($con, $consulta);
 
       $cards = [];
       while ($row = mysqli_fetch_assoc($resultado)) {
-        $cards[] = new DestacadasCard($row['imagen'], $row['precio'], $row['imagen'], $row['imagen']);
+        $cards[] = new DestacadasCard($row['imagen'], $row['precio'], $row['nombre'], $row['id_energia'], $row['poder'], $row['id']);
       }
 
       if (count($cards) % 2 == 0) {
